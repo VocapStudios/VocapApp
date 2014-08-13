@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vocap</title>
+	
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>	
+
+	<script type="text/javascript" src="jquery.highlighttextarea.min.js"></script>	
+
+	<style type="text/css" rel="stylesheet" href="jquery.highlighttextarea.min.css"></style>
+	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="dictionary.js"></script>
+
+	<link type="text/css" rel="stylesheet" href="style.css"></style>
+	<link href='http://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+	<!-- VideoJS 
+	<link href="//vjs.zencdn.net/4.7/video-js.css" rel="stylesheet">
+	<script src="//vjs.zencdn.net/4.7/video.js"></script>
+	-->
+</head>
+<body>
+
+
+	<div id="page-wrapper">
+
+		<h1>Vocap - Subtitle Interpreter</h1>
+		<div id="text-input">
+			Open an srt file: 
+			<input type="file" id="fileInput">
+		</div>
+
+
+		<video id="example_video_1" class="video-js vjs-default-skin"
+	  	controls preload="auto" width="100%" height="264"
+	  	poster="http://video-js.zencoder.com/oceans-clip.png"
+	  	data-setup='{"example_option":true}'>
+	 	<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+	 	<source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+	 	<source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+		 
+	 	<track id="videoSubtitle" kind="subtitles" src="matrix.srt" srclang="es" label="English"  default>
+		 <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+
+	</video>
+
+		<p id="randomWords">
+		<p id="fileDisplayArea" style="height:400px;"></p>
+
+	</div>
+	<div id="word-bank">
+		<p>Word Bank</p>
+		<br>
+	</div>
+
+</body>
+</html>
