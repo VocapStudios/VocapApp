@@ -101,6 +101,8 @@ window.onload = function() {
                console.log(fileInput.names);
                wordBank.innerText = "";
                wordBank.innerText += randomWords.join('\n');
+
+               console.log(Object.keys(frenchDictionary));
            
 				}
             reader.readAsText(file, 'ISO-8859-1');
