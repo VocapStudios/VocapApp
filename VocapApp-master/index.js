@@ -1,9 +1,11 @@
 
 //*****************************************************************************************************************************
+//alert("Before onload");
 window.onload = function() {
+//	alert("After onload");
 		var fileInput = document.getElementById('fileInput');
 		var fileDisplayArea = document.getElementById('fileDisplayArea');
-      var videoSubtitles = document.getElementById('videoSubtitle');
+  //    var videoSubtitles = document.getElementById('videoSubtitle');
       var wordBank = document.getElementById('word-bank');
 		fileInput.addEventListener('change', function(e) {
 			var file = fileInput.files[0];
@@ -16,8 +18,9 @@ window.onload = function() {
 					var subtitle = reader.result.replace(/[^a-zA-Z]+/g , ',');
 					var lowercaseSubtitles=subtitle.toLowerCase();
 					var allWords = lowercaseSubtitles.split(',');
-				
-
+					var spanishRadio = document.getElementById("Spanish");
+					var frenchRadio = document.getElementById("French");
+					var commonWords;
 					//Removing duplicates in array
 
 					var uniqueWords = [];
@@ -69,10 +72,15 @@ window.onload = function() {
 
                           return array;
                         }
-                    var shuffledWords = shuffle(sortedWords);
+                        if(spanishRadio.checked){
+                        	commonWords = intersect(sortedWords,dictionarySpanishTwo);
+                        }
+                        else if(frenchRadio.checked){
+                        	commonWords = intersect(sortedWords,frenchWords);
+                        }
+                    var shuffledWords = shuffle(commonWords);
                     var randomWords = shuffledWords.splice(0,10);
 
-					var commonWords = intersect(sortedWords,dictionarySpanishTwo);
 
 					var actualResult = wordFrequ;
 
@@ -84,14 +92,14 @@ window.onload = function() {
 					console.log(sortedWords);
 				
 					// console.log(dictionarySpanish);
-					console.log(sortedDictionarySpanishTwo);
+					console.log(frenchWords);
 
 					console.log(randomWords);
  
                $("body").highlight(randomWords, { wordsOnly: true });
                //Video Subtitles
                console.log(fileInput.names);
-
+               wordBank.innerText = "";
                wordBank.innerText += randomWords.join('\n');
            
 				}

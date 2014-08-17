@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE html>	
 <html>
 <head>
 	<title>Vocap</title>
-
+	
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>	
 
 	<script type="text/javascript" src="jquery.highlighttextarea.min.js"></script>	
@@ -20,30 +20,35 @@
 </head>
 <body>
 
-	
+
 	<div id="page-wrapper">
-	
-		<img src="https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/v/t35.0-12/10602429_654245228016669_1186183967_o.jpg?oh=67fe10525456c4b5689183c74da0bc3d&oe=53F2793D&__gda__=1408391085_b93a70202160b0e9179201da06103337" height="80px" width="250px" align="right">
 
 		<h1>Vocap - Subtitle Interpreter</h1>
 		<div id="text-input">
-			Open your srt file: 
+			Open an srt file: 
 			<input type="file" id="fileInput">
 		</div>
 
+ 		<form>
+ 			<input type="radio" name="language" id="Spanish" value="Spanish">Spanish<br>
+ 			<input type="radio" name="language" id="French" value="French">French<br>
+ 		</form>
 
-		<video id="example_video_1" class="video-js vjs-default-skin"
-	  	controls preload="auto" width="100%" height="264"
-	  	poster="http://video-js.zencoder.com/oceans-clip.png"
-	  	data-setup='{"example_option":true}'>
-	 	<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
-	 	<source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
-	 	<source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+		<video id="example_video_1" class="video-js vjs-default-skin my-custom-skin" controls preload="auto" width="100%" height="264"
+	  	poster="http://www.walldesk.net/pdp/1024/07/06/Matrix/Matrix-1.jpg">
+	 	<source src="Matrix.mp4" type='video/mp4' />
+	 	<track id="videoSubtitle" kind="subtitles" src="Matrix-French.vtt" srclang="fr" label="English"  default></track>
 		 
-	 	<track id="videoSubtitle" kind="subtitles" src="matrix.srt" srclang="es" label="English"  default>
-		 <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
-
 	</video>
+
+	<video controls="" class="trackSupported">
+  <source src="treeOfLife/video/developerStories-en.webm" type="video/webm; codecs=&quot;vp8, vorbis&quot;">
+  <track src="treeOfLife/tracks/developerStories-subtitles-en.vtt" label="English subtitles" kind="subtitles" srclang="en" default=""></track>
+</video>
+
+	
+
+
 
 		<p id="randomWords">
 		<p id="fileDisplayArea" style="height:400px;"></p>
